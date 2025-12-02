@@ -3,130 +3,106 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Join CS2 — aarons.noob.club</title>
-
+  
   <!-- Google font for CS-style look -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Base Page */
-    body {
-      font-family: 'Orbitron', monospace;
-      margin: 0; height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      color: #e6eef8;
-      overflow: hidden;
-      position: relative;
-    }
-
-    /* Background Image */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: url('https://images8.alphacoders.com/132/thumb-1920-1329760.jpeg') center/cover no-repeat;
-      filter: brightness(0.35) blur(1px);
-      z-index: 0;
-    }
-
-    /* Card container */
-    .card {
-      position: relative;
-      z-index: 1;
-      max-width: 520px; padding: 32px;
-      border-radius: 14px;
-      text-align: center;
-      background: rgba(20, 25, 40, 0.85);
-      border: 2px solid #1f6feb;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: 26px;
-      color: #1f6feb;
-      text-shadow: 0 0 8px #1158d6, 0 0 14px #1f6feb;
-    }
-
-    p {
-      margin: 0 0 20px;
-      color: #cbd7ea;
-      font-size: 16px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 700;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(180deg,#1f6feb,#1158d6);
-      color: #fff;
-      font-size: 16px;
-      box-shadow: 0 8px 20px rgba(17,88,214,0.35);
-      transition: all 0.2s ease-in-out;
-    }
-
-    .button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 28px rgba(17,88,214,0.55);
-      background: linear-gradient(180deg,#1158d6,#0a3cd6);
-    }
-
-    .small {
-      margin-top: 14px;
-      font-size: 13px;
-      color: #b9cbe6;
-    }
-
-    a.alt {
-      color: #bfe1ff;
-      text-decoration: underline;
-      font-weight: 500;
-    }
-
-    /* Crosshair accent in card corner */
-    .card::after {
-      content: "+";
-      position: absolute;
-      top: 12px; right: 12px;
-      font-size: 28px;
-      color: rgba(31, 111, 235, 0.3);
-      text-shadow: 0 0 6px rgba(31,111,235,0.6);
-      transform: rotate(45deg);
-    }
-
-  </style>
-</head>
-<body>
-
-  <div class="card" role="main">
-    <h1>Connect to CS2 Server</h1>
-    <p>Click the button to launch Steam and join <strong>aarons.noob.club:25429</strong>.</p>
-
-    <!-- Join Button -->
-    <button class="button" id="joinBtn">Join CS2 Server</button>
-
-    <div class="small">
-      If the button doesn’t work, try this link:<br>
-      <a class="alt" id="rawLink" href="steam://run/730//+connect aarons.noob.club:25429">
-        steam://run/730//+connect aarons.noob.club:25429
-      </a>
-    </div>
-  </div>
-
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <link rel="stylesheet" href="style.css">
+  
   <script>
-    const url = "steam://run/730//+connect aarons.noob.club:25429";
-
-    document.getElementById('joinBtn').addEventListener('click', () => {
-      window.location.href = url;
-      setTimeout(() => { window.open(url, '_self'); }, 200);
-    });
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              500: '#1f6feb',
+              600: '#1158d6',
+            },
+            accent: {
+              500: '#e63946',
+            }
+          }
+        }
+      }
+    }
   </script>
+</head>
 
+<body class="bg-gray-900 overflow-hidden">
+  <!-- Background image with overlay -->
+  <div class="absolute inset-0 z-0 bg-[url('https://huggingface.co/spaces/peabush/cs2-portal-blast/resolve/main/images/huihiuoihuo.png')] bg-cover bg-center"></div>
+  
+  <!-- Animated background particles -->
+  <div id="particles-js" class="absolute inset-0 z-0"></div>
+  <!-- Dark overlay for better text contrast -->
+  <div class="absolute inset-0 z-0 bg-black/50"></div>
+<main class="relative z-10 min-h-screen flex items-center justify-center p-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
+<!-- Card with animated border -->
+    <div class="relative max-w-md w-full bg-gray-900/80 backdrop-blur-md rounded-xl border border-primary-500/30 overflow-hidden shadow-2xl">
+      <!-- Animated border effect -->
+      <div class="absolute inset-0 rounded-xl p-[2px]">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-500/30 via-primary-500/10 to-transparent rounded-xl opacity-70 animate-pulse"></div>
+      </div>
+      
+      <!-- Card content -->
+      <div class="p-8 relative z-10">
+        <!-- Header with animated icon -->
+        <div class="flex flex-col items-center mb-6">
+          <div class="relative mb-4">
+            <div class="absolute inset-0 bg-primary-500/20 rounded-full animate-ping"></div>
+            <i data-feather="target" class="w-12 h-12 text-primary-500 relative"></i>
+          </div>
+          <h1 class="text-2xl font-bold text-primary-500 mb-2 tracking-wide">CS2 SERVER </h1>
+          <div class="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"></div>
+        </div>
+        
+        <!-- Server info with animated highlight -->
+        <p class="text-gray-300 mb-6 text-center">
+                    <span class="font-bold text-primary-400 bg-gray-800/50 px-2 py-1 rounded-md inline-block mt-2 animate-pulse">
+            aarons.noob.club:25429
+          </span>
+        </p>
+        
+        <!-- Join button with hover effect -->
+        <div class="flex justify-center mb-6">
+          <button id="joinBtn" class="relative overflow-hidden group">
+            <span class="absolute inset-0 bg-gradient-to-r from-primary-500 to-primary-600 group-hover:from-primary-600 group-hover:to-primary-700 transition-all duration-300"></span>
+            <span class="relative z-10 flex items-center justify-center px-8 py-3 font-bold text-white tracking-wider">
+              <i data-feather="play" class="mr-2 w-4 h-4"></i>
+              JOIN SERVER NOW
+            </span>
+            <span class="absolute inset-0 border border-primary-400/30 rounded-md group-hover:border-primary-400/50 transition-all duration-300"></span>
+          </button>
+        </div>
+        
+        <!-- Alternative link -->
+        <div class="text-center text-sm text-gray-400">
+          <p class="mb-2">If the button doesn't work, use this direct link:</p>
+          <a id="rawLink" href="steam://run/730//+connect aarons.noob.club:25429" class="text-primary-300 hover:text-primary-200 underline underline-offset-4 transition-colors">
+            steam://run/730//+connect aarons.noob.club:25429
+          </a>
+        </div>
+      </div>
+      
+      <!-- Corner accent -->
+      <div class="absolute top-4 right-4 text-primary-500/50">
+        <i data-feather="crosshair"></i>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer with subtle branding -->
+  <footer class="absolute bottom-4 left-0 right-0 text-center text-xs text-gray-500 z-10">
+    CS2 Server Portal • aarons.noob.club
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    feather.replace();
+  </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
 </body>
 </html>
